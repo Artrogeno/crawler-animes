@@ -1,0 +1,26 @@
+// Bootstrap Theme variable
+$body-bg: #15181f;
+$body-color: #fff;
+
+// BG
+$bg-red: #50323b;
+$bg-card: #1a1e27;
+
+// FG
+$fg-red: #cb0245;
+
+$theme-colors: (
+  'green': #0bbe35,
+);
+
+// NAVBAR
+$navbar-height: 100vh;
+$navbar-width: 100px;
+
+// NAVBAR
+$main-height: 100vh;
+$main-width: 100vw;
+$main-pd-left: $navbar-width;
+
+// SCROLL
+$bg-scrollbar: #333438;

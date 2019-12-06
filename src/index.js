@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker'
 
 import '@src/shared/services/i18n'
 import '@src/assets/scss/app.scss'
+import '@src/shared/services/fontawesome'
 
 ReactDOM.render(<App />, document.getElementById('root'))
 

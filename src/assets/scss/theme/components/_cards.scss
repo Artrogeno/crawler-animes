@@ -1,0 +1,12 @@
+.card-animes {
+  height: 200px;
+  width: 100%;
+  padding: 1rem;
+
+  .wrap {
+    padding: 1.4rem;
+    background-color: $bg-card;
+    border-radius: 0.6rem;
+    min-height: 150px;
+  }
+}
