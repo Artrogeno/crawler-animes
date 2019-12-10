@@ -3,47 +3,50 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'reactstrap'
 import { withTranslation } from 'react-i18next'
 
-import GatewayAction from '@src/shared/stores/ducks/gateway'
+import AnimeAction from '@src/shared/stores/ducks/anime'
 import HeaderAction from '@src/shared/stores/ducks/header'
 import Loading from '@src/shared/components/Loading'
-import CardGateway from './components/CardGateway'
+import CardAnimes from '@src/shared/components/CardAnimes'
 
-const Home = props => {
+const Animes = props => {
   const dispatch = useDispatch()
-  const { data, loading } = useSelector(state => state.gateway)
   const { t, history } = props
+  const { data, loading } = useSelector(state => state.anime)
+  const { data: dataGateway } = useSelector(state => state.gateway)
 
   useEffect(() => {
     const fetchAnimes = async () => {
-      await dispatch(GatewayAction.gatewayRequest())
+      const { gateway } = dataGateway.filter(item => item.selected === true)[0]
+      await dispatch(AnimeAction.animeRequest(gateway))
     }
     fetchAnimes()
-  }, [dispatch])
+  }, [dispatch, dataGateway])
 
   useEffect(() => {
     const dispatchHeader = async () => {
       if (data) {
+        const { title } = dataGateway.filter(item => item.selected === true)[0]
         const header = {
-          title: t('ANIMES_GATEWAY'),
-          subtitle: t('ANIMES_GATEWAY'),
-          icon: ['fas', 'folder'],
+          title: t('ANIMES'),
+          subtitle: title,
+          icon: ['fa', 'walking'],
           gateway: false,
-          back: false,
+          back: true,
           history,
         }
         await dispatch(HeaderAction.headerProps(header))
       }
     }
     dispatchHeader()
-  }, [data, t, dispatch, history])
+  }, [data, t, history, dataGateway, dispatch])
 
   return (
     <Loading loading={loading}>
-      <Row className="justify-content-around mb-5">
+      <Row>
         {data
           ? data.map((item, i) => (
               <Col md={3} key={i}>
-                <CardGateway data={item} {...props} />
+                <CardAnimes index={i} data={item} />
               </Col>
             ))
           : null}
@@ -52,4 +55,4 @@ const Home = props => {
   )
 }
 
-export default withTranslation()(Home)
+export default withTranslation()(Animes)

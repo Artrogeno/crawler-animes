@@ -1,5 +1,5 @@
 export default {
-  BASE_URL: 'http://localhost:3001/api/',
+  BASE_URL: 'http://localhost:3001/api',
   REDIRECT: '/',
   LOGIN: '/login',
 }

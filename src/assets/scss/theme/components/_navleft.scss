@@ -1,8 +1,8 @@
 $navleft-border-right: 0.14rem solid #455751;
-$navleft-bg-link: #32343a;
-$navleft-fg-link: #676f77;
+$navleft-bg-link: $color-dark-800;
+$navleft-fg-link: $color-dark-200;
 $navleft-bg-link-active: #163e2a;
-$navleft-fg-link-active: #0bbe35;
+$navleft-fg-link-active: $color-green;
 
 .navleft {
   top: 0;

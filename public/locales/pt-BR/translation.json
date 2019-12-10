@@ -2,5 +2,14 @@
   "APP_TITLE": "Animes Crawler",
   "LOGIN": "Entar",
   "LOGOUT": "Sair",
-  "HOME": "Início"
+  "HOME": "Início",
+  "VIDEO": "Video",
+  "ANIMES": "Animes",
+  "ANIMES_GATEWAY": "Animes Portal",
+  "CHANGE_GATEWAY": "Escolha o Portal",
+  "ALL_EPISODES": "Todos os episódios",
+  "GET_START": "Vamos Começar",
+  "LSIT_ALL_ANIMES": "Listar todos animes",
+  "MANY_PLAYS": "Varios Plays",
+  "NO_DATABASE": "Sem Banco de dados"
 }

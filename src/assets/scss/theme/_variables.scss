@@ -2,15 +2,22 @@
 $body-bg: #15181f;
 $body-color: #fff;
 
+// COLOR
+$color-dark-800: #32343a;
+$color-dark-200: #676f77;
+$color-green: #0bbe35;
+
 // BG
 $bg-red: #50323b;
 $bg-card: #1a1e27;
 
 // FG
 $fg-red: #cb0245;
+$fg-green-dark: #1e4632;
+$fg-green-light: $color-green;
 
 $theme-colors: (
-  'green': #0bbe35,
+  'green': $color-green,
 );
 
 // NAVBAR
