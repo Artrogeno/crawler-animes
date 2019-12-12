@@ -2,7 +2,11 @@ import { call, put } from 'redux-saga/effects'
 import axios from '@src/shared/services/axios'
 
 import GatewayActions from '../ducks/gateway'
-import { getItemLS, setItemLS } from '@src/shared/services/storage'
+import {
+  getItemLS,
+  setItemLS,
+  removeItemLS,
+} from '@src/shared/services/storage'
 import { STORAGE } from '@src/shared/constants'
 
 const { GATEWAY_CHANNEL } = STORAGE
@@ -18,13 +22,15 @@ const selectGateway = (list, gateway) => {
   })
 }
 
-export function* gatewayRequest() {
+export function* gatewayRequest({ uri }) {
   try {
     const {
       data: { data },
-    } = yield call(axios.get, `/animes/gateway`)
+    } = yield call(axios.get, uri)
 
     const gateway = selectGateway(data, null)
+
+    removeItemLS(GATEWAY_CHANNEL)
     setItemLS(GATEWAY_CHANNEL, gateway)
 
     yield put(GatewayActions.gatewaySuccess(gateway))

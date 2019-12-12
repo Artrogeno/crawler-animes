@@ -1,8 +1,6 @@
 import React from 'react'
 
 const Loading = ({ loading, children, full, content, local }) => {
-  console.log('full: ', full)
-
   return loading ? (
     <>
       {full && (

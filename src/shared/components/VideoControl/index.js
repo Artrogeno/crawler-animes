@@ -31,6 +31,12 @@ const VideoControl = ({
     history.push(`/episodes/${id}/${category}`)
   }
 
+  const getToNextEpisodeHandler = () => {
+    if (next) {
+      goToVideoHandler(next)
+    }
+  }
+
   useEffect(() => {
     if (!loadingReq && sources && info) {
       setVideoStream(sources[0])
@@ -88,7 +94,12 @@ const VideoControl = ({
         </ButtonGroup>
       </div>
       <div className="wrap-video">
-        <video controls src={videoStream} />
+        <video
+          controls
+          src={videoStream}
+          autoPlay
+          onEnded={getToNextEpisodeHandler}
+        />
       </div>
     </Loading>
   )

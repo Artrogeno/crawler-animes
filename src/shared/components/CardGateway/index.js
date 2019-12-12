@@ -15,9 +15,11 @@ const CardGateway = ({ t, history, data }) => {
   }
 
   return (
-    <div className="card-gateway card">
+    <div className={`card-gateway card ${!data.working ? 'disabled' : null}`}>
       <div className="card-header">
-        <span className="badge-default badge badge-secondary">Working</span>
+        <span className="badge-default badge badge-secondary">
+          {data.working ? t('ITS_WORKING') : t('ITS_NOT_WORKING')}
+        </span>
         <h1 className="card-title">{data.title}</h1>
         <h5>{t('LSIT_ALL_ANIMES')}</h5>
       </div>
@@ -46,6 +48,7 @@ const CardGateway = ({ t, history, data }) => {
           color="green"
           className="mt-4 btn-large"
           onClick={selectdHandle}
+          disabled={!data.working}
         >
           {t('GET_START')}
         </Button>

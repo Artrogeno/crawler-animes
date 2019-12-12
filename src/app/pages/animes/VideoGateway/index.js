@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col } from 'reactstrap'
 import { withTranslation } from 'react-i18next'
 
+import { ROUTE } from '@src/shared/constants'
 import GatewayAction from '@src/shared/stores/ducks/gateway'
 import HeaderAction from '@src/shared/stores/ducks/header'
 import Loading from '@src/shared/components/Loading'
@@ -15,9 +16,9 @@ const VideoGateway = props => {
 
   useEffect(() => {
     const fetchAnimes = async () => {
-      await dispatch(GatewayAction.gatewayRequest())
+      await dispatch(GatewayAction.gatewayRequest(ROUTE.GATEWAY_ANIME))
     }
-    fetchAnimes()
+    fetchAnimes('dispatch')
   }, [dispatch])
 
   useEffect(() => {

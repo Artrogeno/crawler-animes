@@ -7,7 +7,7 @@ import { STORAGE } from '@src/shared/constants'
 const { GATEWAY_CHANNEL } = STORAGE
 
 const { Types, Creators } = createActions({
-  gatewayRequest: [],
+  gatewayRequest: ['uri'],
   gatewaySuccess: ['data'],
   gatewaySelected: ['gateway'],
 })
