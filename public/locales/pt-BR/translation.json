@@ -11,11 +11,13 @@
   "VIDEO": "Video",
   "ANIMES": "Animes",
   "GO_TO_ANIMES": "Ir para animes",
-  "ANIMES_GATEWAY": "Animes Portal",
   "CHANGE_GATEWAY": "Escolha o Portal",
   "ALL_EPISODES": "Todos os episódios",
   "GET_START": "Vamos Começar",
   "LSIT_ALL_ANIMES": "Listar todos animes",
   "MANY_PLAYS": "Varios Plays",
-  "NO_DATABASE": "Sem Banco de dados"
+  "NO_DATABASE": "Sem Banco de dados",
+
+  "ANIMES_GATEWAY": "Animes Portal",
+  "MANGA_GATEWAY": "Mangas Portal"
 }

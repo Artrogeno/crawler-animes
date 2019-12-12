@@ -8,7 +8,7 @@ import HeaderAction from '@src/shared/stores/ducks/header'
 import Loading from '@src/shared/components/Loading'
 import CardGateway from '@src/shared/components/CardGateway'
 
-const VideoGateway = props => {
+const MangaGateway = props => {
   const dispatch = useDispatch()
   const { data, loading } = useSelector(state => state.gateway)
   const { t, history } = props
@@ -24,8 +24,8 @@ const VideoGateway = props => {
     const dispatchHeader = async () => {
       if (data) {
         const header = {
-          title: t('ANIMES_GATEWAY'),
-          subtitle: t('ANIMES_GATEWAY'),
+          title: t('MANGA_GATEWAY'),
+          subtitle: t('MANGA_GATEWAY'),
           icon: ['fas', 'folder'],
           gateway: false,
           back: false,
@@ -52,4 +52,4 @@ const VideoGateway = props => {
   )
 }
 
-export default withTranslation()(VideoGateway)
+export default withTranslation()(MangaGateway)

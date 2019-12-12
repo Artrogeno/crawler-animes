@@ -57,7 +57,7 @@ const VideoPlayList = ({ history, playlist, match }) => {
   }, [playlist])
 
   return (
-    <Loading loading={loading}>
+    <Loading loading={loading} local>
       <div className="playlist-info">
         <div className="playlist-info-thumb">
           <Image src={thumbnail} alt={title} className="img-fluid" />

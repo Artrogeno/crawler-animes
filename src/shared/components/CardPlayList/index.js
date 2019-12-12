@@ -6,11 +6,13 @@ const CardPlayList = ({ active, action, data: { title, id } }) => {
 
   const scrollToRef = () => {
     setTimeout(() => {
-      activeRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-        inline: 'nearest',
-      })
+      if (activeRef.current) {
+        activeRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'nearest',
+        })
+      }
     }, 1000)
   }
 

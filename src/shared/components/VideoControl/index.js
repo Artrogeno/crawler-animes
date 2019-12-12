@@ -39,6 +39,8 @@ const VideoControl = ({
       setPrev(info.prev)
       setNext(info.next)
       setSources(sourcesUrl)
+    } else {
+      setLoading(true)
     }
   }, [loadingReq, sources, info])
 

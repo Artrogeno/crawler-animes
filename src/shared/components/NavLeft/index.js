@@ -10,7 +10,7 @@ const NavLeft = () => {
       </div>
       <ul>
         <li>
-          <NavLink to="/">
+          <NavLink exact to="/">
             <FontAwesomeIcon icon={['fas', 'ghost']} />
           </NavLink>
         </li>
