@@ -1,21 +1,50 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { withTranslation } from 'react-i18next'
-import { Row, Col, Button, ButtonGroup } from 'reactstrap'
+import { Button, ButtonGroup } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const VideoControl = ({ t, history, sources, info }) => {
-  const { episodes, prev, next } = info
-  const [videoStream, setVideoStream] = useState(sources[0])
+import Loading from '@src/shared/components/Loading'
+
+const VideoControl = ({
+  t,
+  history,
+  sources: sourcesUrl,
+  info,
+  loading: loadingReq,
+}) => {
+  const [videoStream, setVideoStream] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [episodes, setEpisodes] = useState(null)
+  const [prev, setPrev] = useState(null)
+  const [next, setNext] = useState(null)
+  const [sources, setSources] = useState([])
 
   const chooseHandler = src => {
     setVideoStream(src)
   }
 
-  const goPrevHandler = netx => {}
+  const goToVideoHandler = ({ id }) => {
+    history.push(`/video/${id}`)
+  }
+
+  const goEpisodesHandler = ({ id, category }) => {
+    history.push(`/episodes/${id}/${category}`)
+  }
+
+  useEffect(() => {
+    if (!loadingReq && sources && info) {
+      setVideoStream(sources[0])
+      setLoading(false)
+      setEpisodes(info.episodes)
+      setPrev(info.prev)
+      setNext(info.next)
+      setSources(sourcesUrl)
+    }
+  }, [loadingReq, sources, info])
 
   return (
-    <Row>
-      <Col md={8} className="menu-control">
+    <Loading loading={loading}>
+      <div className="menu-control">
         <ButtonGroup size="sm">
           {sources.map((item, i) => (
             <Button
@@ -32,7 +61,7 @@ const VideoControl = ({ t, history, sources, info }) => {
 
         <ButtonGroup size="md">
           {prev ? (
-            <Button color="green" onClick={() => goPrevHandler(prev)}>
+            <Button color="green" onClick={() => goToVideoHandler(prev)}>
               <span>
                 <FontAwesomeIcon icon={['fas', 'fast-backward']} />
               </span>
@@ -40,7 +69,7 @@ const VideoControl = ({ t, history, sources, info }) => {
           ) : null}
 
           {next ? (
-            <Button color="green" onClick={() => goPrevHandler(next)}>
+            <Button color="green" onClick={() => goToVideoHandler(next)}>
               <span>
                 <FontAwesomeIcon icon={['fas', 'fast-forward']} />
               </span>
@@ -48,18 +77,18 @@ const VideoControl = ({ t, history, sources, info }) => {
           ) : null}
 
           {episodes ? (
-            <Button color="green" onClick={() => goPrevHandler(episodes)}>
+            <Button color="green" onClick={() => goEpisodesHandler(episodes)}>
               <span>
                 <FontAwesomeIcon icon={['fab', 'buffer']} />
               </span>
             </Button>
           ) : null}
         </ButtonGroup>
-      </Col>
-      <Col md={10} className="wrap-video">
+      </div>
+      <div className="wrap-video">
         <video controls src={videoStream} />
-      </Col>
-    </Row>
+      </div>
+    </Loading>
   )
 }
 

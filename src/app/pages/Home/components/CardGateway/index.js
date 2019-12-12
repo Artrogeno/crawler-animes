@@ -11,7 +11,7 @@ const CardGateway = ({ t, history, data }) => {
 
   const selectdHandle = async () => {
     await dispatch(GatewayAction.gatewaySelected(data.gateway))
-    history.push('/animes')
+    history.push('/animes/1')
   }
 
   return (

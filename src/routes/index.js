@@ -15,7 +15,7 @@ export default () => (
     {/* <Guest path="/login" component={Login} /> */}
     <MainLayout>
       <Guest exact path="/" component={Home} />
-      <Guest path="/animes" component={Animes} />
+      <Guest path="/animes/:page" component={Animes} />
       <Guest path="/episodes/:id/:category" component={Episodes} />
       <Guest path="/video/:id" component={Video} />
       {/* <Private exact path="/" component={Home} /> */}

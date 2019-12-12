@@ -111,3 +111,79 @@
     }
   }
 }
+
+// CARD PLAYLIST
+@mixin card-playlist-hover {
+  span {
+    &.icon {
+      background: $fg-green-dark-800;
+      color: $color-green;
+    }
+    &.info {
+      color: rgba($white, 0.8);
+    }
+  }
+}
+
+.card-playlist {
+  height: 140px;
+  width: 100%;
+  padding: 0 0.6rem 0 2rem;
+  margin-bottom: 0.6rem;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  opacity: 0.9;
+  @include trasition(all, 0.3s, ease-in-out);
+
+  &,
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
+  .card-body {
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    padding: 0 !important;
+    color: rgba($white, 0.7);
+    @include trasition(all, 0.3s, ease-in-out);
+
+    span {
+      flex: 1 1;
+      @include trasition(all, 0.3s, ease-in-out);
+
+      &.icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        background: $color-dark-800;
+        border-radius: 0.4rem;
+      }
+
+      &.info {
+        padding-left: 0.8rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        overflow: hidden;
+      }
+    }
+
+    &:hover {
+      color: rgba($white, 0.8);
+      @include card-playlist-hover;
+    }
+  }
+
+  &.active {
+    &:hover {
+      opacity: 1;
+    }
+    .card-body {
+      @include card-playlist-hover;
+    }
+  }
+}

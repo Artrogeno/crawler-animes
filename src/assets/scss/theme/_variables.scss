@@ -14,6 +14,7 @@ $bg-card: #1a1e27;
 // FG
 $fg-red: #cb0245;
 $fg-green-dark: #1e4632;
+$fg-green-dark-800: #163e2a;
 $fg-green-light: $color-green;
 
 $theme-colors: (
@@ -26,7 +27,7 @@ $navbar-width: 100px;
 
 // NAVBAR
 $main-height: 100vh;
-$main-width: 100vw;
+$main-width: 100%;
 $main-pd-left: $navbar-width;
 
 // SCROLL

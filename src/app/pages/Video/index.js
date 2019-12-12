@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { withTranslation } from 'react-i18next'
-import { Row, Col } from 'reactstrap'
 
 import VideoAction from '@src/shared/stores/ducks/video'
 import HeaderAction from '@src/shared/stores/ducks/header'
-import Loading from '@src/shared/components/Loading'
 import VideoControl from '@src/shared/components/VideoControl'
+import VideoPlayList from '@src/shared/components/VideoPlayList'
 
 const Video = props => {
   const id = props.match.params.id || null
@@ -14,6 +13,8 @@ const Video = props => {
   const dispatch = useDispatch()
   const { data: dataGateway } = useSelector(state => state.gateway)
   const { data, loading } = useSelector(state => state.video)
+  const [video, setVideo] = useState(null)
+  const [info, setInfo] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,17 +41,27 @@ const Video = props => {
           history,
         }
         await dispatch(HeaderAction.headerProps(header))
+        setVideo(data.videos)
+        setInfo(data.info)
       }
     }
     dispatchHeader()
   }, [data, history, dataGateway, dispatch])
 
   return (
-    <Loading loading={loading}>
-      {data.videos ? (
-        <VideoControl sources={data.videos} info={data.info} {...props} />
-      ) : null}
-    </Loading>
+    <div className="video-container">
+      <div className="player">
+        <VideoControl
+          sources={video}
+          info={info}
+          {...props}
+          loading={loading}
+        />
+      </div>
+      <div className="playlist">
+        <VideoPlayList playlist={info} {...props} />
+      </div>
+    </div>
   )
 }
 
