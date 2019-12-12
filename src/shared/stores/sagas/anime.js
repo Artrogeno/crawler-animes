@@ -9,7 +9,6 @@ export function* initialRequest({ gateway, page }) {
       data: { data },
     } = yield call(axios.get, `/animes/${gateway}?page=${page}`)
 
-    console.log(' DATA ', data)
     yield put(AnimeActions.animeSuccess(data))
   } catch (error) {
     console.log(error)

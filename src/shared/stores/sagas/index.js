@@ -6,6 +6,7 @@ import { gatewayRequest, gatewaySelected } from './gateway'
 import { initialRequest } from './anime'
 import { episodeRequest } from './episode'
 import { videoRequest } from './video'
+import { mangaRequest } from './manga'
 
 import { AuthTypes } from '../ducks/auth'
 import { HeaderTypes } from '../ducks/header'
@@ -13,6 +14,7 @@ import { GatewayTypes } from '../ducks/gateway'
 import { AnimeTypes } from '../ducks/anime'
 import { EpisodeTypes } from '../ducks/episode'
 import { VideoTypes } from '../ducks/video'
+import { MangaTypes } from '../ducks/manga'
 
 export default function* rootSagas() {
   return yield all([
@@ -30,5 +32,7 @@ export default function* rootSagas() {
     takeLatest(EpisodeTypes.EPISODE_REQUEST, episodeRequest),
 
     takeLatest(VideoTypes.VIDEO_REQUEST, videoRequest),
+
+    takeLatest(MangaTypes.MANGA_REQUEST, mangaRequest),
   ])
 }

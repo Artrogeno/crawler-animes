@@ -9,7 +9,7 @@ import CardAnimes from '@src/shared/components/CardAnimes'
 import Paginate from '@src/shared/components/Paginate'
 import history from '@src/routes/history'
 
-const Animes = props => {
+const Manga = props => {
   const dispatch = useDispatch()
   const { t, match } = props
   const page = match.params.page || 1
@@ -66,4 +66,4 @@ const Animes = props => {
   )
 }
 
-export default withTranslation()(Animes)
+export default withTranslation()(Manga)

@@ -44,7 +44,7 @@ const VideoGateway = props => {
         {data
           ? data.map((item, i) => (
               <Col md={3} key={i}>
-                <CardGateway data={item} {...props} />
+                <CardGateway data={item} {...props} route="/animes/1" />
               </Col>
             ))
           : null}

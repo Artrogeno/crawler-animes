@@ -3,5 +3,5 @@ export default {
   REDIRECT: '/',
   LOGIN: '/login',
   GATEWAY_ANIME: '/animes/gateway',
-  GATEWAY_MANGA: '/manga/gateway',
+  GATEWAY_MANGA: '/mangas/gateway',
 }

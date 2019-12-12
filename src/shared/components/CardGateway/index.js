@@ -6,12 +6,12 @@ import { Button } from 'reactstrap'
 
 import GatewayAction from '@src/shared/stores/ducks/gateway'
 
-const CardGateway = ({ t, history, data }) => {
+const CardGateway = ({ t, history, data, route }) => {
   const dispatch = useDispatch()
 
   const selectdHandle = async () => {
     await dispatch(GatewayAction.gatewaySelected(data.gateway))
-    history.push('/animes/1')
+    history.push(route)
   }
 
   return (
