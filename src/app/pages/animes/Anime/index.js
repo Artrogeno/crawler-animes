@@ -37,7 +37,7 @@ const Animes = props => {
         const header = {
           title: t('ANIMES'),
           subtitle: title,
-          icon: ['fa', 'walking'],
+          icon: ['fas', 'ghost'],
           gateway: false,
           back: true,
           history,
@@ -49,7 +49,7 @@ const Animes = props => {
   }, [data, t, history, dataGateway, dispatch])
 
   return (
-    <Loading loading={loading && (!data || !data.pages)}>
+    <Loading loading={loading && (!data || !data.pages)} full>
       {data ? (
         <Paginate pages={data.pages} pagnation={paginationHandler} />
       ) : null}

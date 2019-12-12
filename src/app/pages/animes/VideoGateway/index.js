@@ -8,7 +8,7 @@ import HeaderAction from '@src/shared/stores/ducks/header'
 import Loading from '@src/shared/components/Loading'
 import CardGateway from './components/CardGateway'
 
-const Home = props => {
+const VideoGateway = props => {
   const dispatch = useDispatch()
   const { data, loading } = useSelector(state => state.gateway)
   const { t, history } = props
@@ -52,4 +52,4 @@ const Home = props => {
   )
 }
 
-export default withTranslation()(Home)
+export default withTranslation()(VideoGateway)

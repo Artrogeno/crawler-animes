@@ -43,7 +43,7 @@ const VideoControl = ({
   }, [loadingReq, sources, info])
 
   return (
-    <Loading loading={loading}>
+    <Loading loading={loading} local>
       <div className="menu-control">
         <ButtonGroup size="sm">
           {sources.map((item, i) => (

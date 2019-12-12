@@ -40,6 +40,11 @@ const Episodes = props => {
           icon: ['fas', 'layer-group'],
           gateway: false,
           back: true,
+          route: {
+            link: '/animes/1',
+            title: 'GO_TO_ANIMES',
+            icon: ['fas', 'undo-alt'],
+          },
           history,
         }
         await dispatch(HeaderAction.headerProps(header))
@@ -49,7 +54,7 @@ const Episodes = props => {
   }, [data, history, dataGateway, dispatch])
 
   return (
-    <Loading loading={loading}>
+    <Loading loading={loading} content>
       <Row className="episode-container">
         <Col md={3} className="wrap-img">
           <Image src={data.thumbnail} alt={data.title} className="img-fluid" />

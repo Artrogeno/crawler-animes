@@ -1,16 +1,29 @@
 import React from 'react'
 
-const Loading = ({ loading, children }) =>
-  loading ? (
-    <div className="loading-spinner">
-      <div className="right-side">
-        <div className="bar"></div>
-      </div>
-      <div className="left-side">
-        <div className="bar"></div>
-      </div>
-    </div>
+const Loading = ({ loading, children, full, content, local }) => {
+  console.log('full: ', full)
+
+  return loading ? (
+    <>
+      {full && (
+        <div className="loading full">
+          <div className="loading-content"></div>
+        </div>
+      )}
+      {content && (
+        <div className="loading content">
+          <div className="loading-content"></div>
+        </div>
+      )}
+      {local && (
+        <div className="loading local">
+          <div className="loading-content"></div>
+        </div>
+      )}
+    </>
   ) : (
     children
   )
+}
+
 export default Loading

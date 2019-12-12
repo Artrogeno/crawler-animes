@@ -38,6 +38,11 @@ const Video = props => {
           icon: ['fas', 'layer-group'],
           gateway: false,
           back: true,
+          route: {
+            link: '/animes/1',
+            title: 'GO_TO_ANIMES',
+            icon: ['fas', 'undo-alt'],
+          },
           history,
         }
         await dispatch(HeaderAction.headerProps(header))

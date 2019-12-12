@@ -11,17 +11,22 @@ const NavLeft = () => {
       <ul>
         <li>
           <NavLink to="/">
-            <FontAwesomeIcon icon={['far', 'folder']} />
+            <FontAwesomeIcon icon={['fas', 'ghost']} />
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/manga">
+            <FontAwesomeIcon icon={['fas', 'book-open']} />
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/filmes">
+            <FontAwesomeIcon icon={['fas', 'film']} />
           </NavLink>
         </li>
         <li>
           <NavLink to="/calendar">
-            <FontAwesomeIcon icon={['far', 'calendar']} />
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/projects">
-            <FontAwesomeIcon icon={['fas', 'layer-group']} />
+            <FontAwesomeIcon icon={['fas', 'calendar']} />
           </NavLink>
         </li>
         <li>

@@ -4,10 +4,15 @@ import { useSelector } from 'react-redux'
 import { Button } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import history from '@src/routes/history'
 import Loading from '@src/shared/components/Loading'
 
 const Header = ({ t }) => {
   const { data, loading } = useSelector(state => state.header)
+
+  const goTo = uri => {
+    history.push(uri)
+  }
 
   return (
     <Loading loading={loading}>
@@ -32,11 +37,24 @@ const Header = ({ t }) => {
             <h4>{data.subtitle}</h4>
           </div>
         </div>
-        <div>
+        <div className="header-action">
           {data.gateway ? (
             <Button color="green" className="btn-large">
               <FontAwesomeIcon icon={['fas', 'plus']} />
               <span> {t('CHANGE_GATEWAY')}</span>
+            </Button>
+          ) : null}
+          {data.route ? (
+            <Button
+              color="green"
+              outline
+              className="btn-large"
+              onClick={() => goTo(data.route.link)}
+            >
+              <span className="icon">
+                <FontAwesomeIcon icon={data.route.icon} />
+              </span>
+              <span> {t(data.route.title)}</span>
             </Button>
           ) : null}
         </div>
