@@ -3,8 +3,6 @@ import { withTranslation } from 'react-i18next'
 
 import Loading from '@src/shared/components/Loading'
 import Image from '@src/shared/components/Image'
-import img0 from '@src/assets/images/01_000.jpg'
-import img1 from '@src/assets/images/01_001.png'
 
 const ReadControl = ({
   action,
