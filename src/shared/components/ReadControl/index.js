@@ -59,7 +59,6 @@ const ReadControl = ({
               alt={`${title}: page - ${item.page}`}
               className="page-read"
             />
-            )}
           </div>
         ))}
       </div>
