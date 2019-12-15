@@ -72,15 +72,15 @@ const SelectChapter = ({
 
   const prevHandler = () => {
     const indexOption = options.findIndex(item => item.value === chapter)
-    if (indexOption > 0) {
-      handleChange(options[indexOption - 1])
+    if (indexOption < options.length) {
+      handleChange(options[indexOption + 1])
     }
   }
 
   const nextHandler = () => {
     const indexOption = options.findIndex(item => item.value === chapter)
-    if (indexOption < options.length) {
-      handleChange(options[indexOption + 1])
+    if (indexOption > 0) {
+      handleChange(options[indexOption - 1])
     }
   }
 
@@ -90,9 +90,9 @@ const SelectChapter = ({
       dataOptions.forEach(({ chapter, label }) =>
         updateOptions.push({ label, value: chapter })
       )
-      const resultFilter = updateOptions
-        .reverse()
-        .filter(({ value }) => value === chapter)[0]
+      const resultFilter = updateOptions.filter(
+        ({ value }) => value === chapter
+      )[0]
       setInputValue(resultFilter)
       setOptions(updateOptions)
     }
