@@ -7,6 +7,8 @@ import { initialRequest } from './anime'
 import { episodeRequest } from './episode'
 import { videoRequest } from './video'
 import { mangaRequest } from './manga'
+import { mangaChaptersRequest } from './mangaChapters'
+import { mangaChapterRequest } from './mangaChapter'
 
 import { AuthTypes } from '../ducks/auth'
 import { HeaderTypes } from '../ducks/header'
@@ -15,6 +17,8 @@ import { AnimeTypes } from '../ducks/anime'
 import { EpisodeTypes } from '../ducks/episode'
 import { VideoTypes } from '../ducks/video'
 import { MangaTypes } from '../ducks/manga'
+import { MangaChaptersTypes } from '../ducks/mangaChapters'
+import { MangaChapterTypes } from '../ducks/mangaChapter'
 
 export default function* rootSagas() {
   return yield all([
@@ -28,11 +32,11 @@ export default function* rootSagas() {
     takeLatest(GatewayTypes.GATEWAY_SELECTED, gatewaySelected),
 
     takeLatest(AnimeTypes.ANIME_REQUEST, initialRequest),
-
     takeLatest(EpisodeTypes.EPISODE_REQUEST, episodeRequest),
-
     takeLatest(VideoTypes.VIDEO_REQUEST, videoRequest),
 
     takeLatest(MangaTypes.MANGA_REQUEST, mangaRequest),
+    takeLatest(MangaChaptersTypes.MANGA_CHAPTERS_REQUEST, mangaChaptersRequest),
+    takeLatest(MangaChapterTypes.MANGA_CHAPTER_REQUEST, mangaChapterRequest),
   ])
 }

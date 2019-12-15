@@ -1,5 +1,8 @@
 header {
   &.main-header {
+    &.header-hidden {
+      display: none;
+    }
     display: flex;
     padding: 1.5rem 2rem;
     align-items: center;

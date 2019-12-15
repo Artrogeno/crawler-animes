@@ -14,11 +14,16 @@ $bg-card: #1a1e27;
 // FG
 $fg-red: #cb0245;
 $fg-green-dark: #1e4632;
+$fg-green-dark-200: #038120;
 $fg-green-dark-800: #163e2a;
 $fg-green-light: $color-green;
 
-$theme-colors: (
-  'green': $color-green,
+// THEME
+$theme-colors: map-merge(
+  (
+    'green': $color-green,
+  ),
+  $theme-colors
 );
 
 // NAVBAR

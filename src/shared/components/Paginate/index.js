@@ -16,7 +16,7 @@ import { useDebounce } from '@src/shared/services/debounce'
 const Paginate = props => {
   const { t, pages, pagnation } = props
   const { maxPage, pageSize, page } = pages
-  const [inputPage, setInputPage] = useState(...page)
+  const [inputPage, setInputPage] = useState(parseInt(page))
   const debouncedInputPage = useDebounce(inputPage, 750)
 
   useEffect(() => {

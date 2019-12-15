@@ -11,6 +11,9 @@ import Episodes from '@app/pages/animes/Episodes'
 import Video from '@app/pages/animes/Video'
 
 import MangaGateway from '@app/pages/manga/MangaGateway'
+import Manga from '@app/pages/manga/Manga'
+import MangaChapters from '@app/pages/manga/MangaChapters'
+import MangaChapter from '@app/pages/manga/MangaChapter'
 
 export default () => (
   <Switch>
@@ -21,7 +24,10 @@ export default () => (
       <Guest path="/episodes/:id/:category" component={Episodes} />
       <Guest path="/video/:id" component={Video} />
 
-      <Guest path="/manga" component={MangaGateway} />
+      <Guest exact path="/manga" component={MangaGateway} />
+      <Guest path="/mangas/launch/:page" component={Manga} />
+      <Guest path="/mangas/:manga/chapters" component={MangaChapters} />
+      <Guest path="/mangas/:manga/chapter/:chapter" component={MangaChapter} />
       {/* <Private exact path="/" component={Home} /> */}
     </MainLayout>
   </Switch>
