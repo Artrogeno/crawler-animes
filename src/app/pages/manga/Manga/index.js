@@ -35,13 +35,21 @@ const Manga = props => {
   useEffect(() => {
     const dispatchHeader = async () => {
       if (data) {
-        const { title } = dataGateway.filter(item => item.selected === true)[0]
+        const { title, gateway } = dataGateway.filter(
+          item => item.selected === true
+        )[0]
         const header = {
           title: t('MANGA'),
           subtitle: title,
           icon: ['fas', 'book-open'],
           gateway: false,
           back: true,
+          search: {
+            gateway,
+            path: 'mangas',
+            prefix: 'chapters',
+            sufix: 'mangas',
+          },
           history,
         }
         await dispatch(HeaderAction.headerProps(header))

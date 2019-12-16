@@ -3,6 +3,7 @@ import { all, takeLatest } from 'redux-saga/effects'
 import { signIn, isAthenticated, redirect } from './auth'
 import { headerProps } from './header'
 import { gatewayRequest, gatewaySelected } from './gateway'
+import { searchRequest } from './search'
 import { initialRequest } from './anime'
 import { episodeRequest } from './episode'
 import { videoRequest } from './video'
@@ -13,6 +14,7 @@ import { mangaChapterRequest } from './mangaChapter'
 import { AuthTypes } from '../ducks/auth'
 import { HeaderTypes } from '../ducks/header'
 import { GatewayTypes } from '../ducks/gateway'
+import { SearchTypes } from '../ducks/search'
 import { AnimeTypes } from '../ducks/anime'
 import { EpisodeTypes } from '../ducks/episode'
 import { VideoTypes } from '../ducks/video'
@@ -30,6 +32,8 @@ export default function* rootSagas() {
 
     takeLatest(GatewayTypes.GATEWAY_REQUEST, gatewayRequest),
     takeLatest(GatewayTypes.GATEWAY_SELECTED, gatewaySelected),
+
+    takeLatest(SearchTypes.SEARCH_REQUEST, searchRequest),
 
     takeLatest(AnimeTypes.ANIME_REQUEST, initialRequest),
     takeLatest(EpisodeTypes.EPISODE_REQUEST, episodeRequest),

@@ -2,6 +2,7 @@
   "APP_TITLE": "Animes Crawler",
   "LOGIN": "Entar",
   "LOGOUT": "Sair",
+  "SEARCH": "Pesquise ...",
   "PER_PAGE": "por página",
   "BY": "de",
   "AND": "e",
@@ -21,7 +22,7 @@
   "LSIT_ALL_ANIMES": "Listar todos animes",
   "MANY_PLAYS": "Varios Plays",
   "NO_DATABASE": "Sem Banco de dados",
-
   "ANIMES_GATEWAY": "Animes Portal",
-  "MANGA_GATEWAY": "Mangas Portal"
+  "MANGA_GATEWAY": "Mangas Portal",
+  "SEARCH_RESULTS_FOR": "Resultados da pesquisa para"
 }

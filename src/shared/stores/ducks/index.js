@@ -4,6 +4,7 @@ import { connectRouter } from 'connected-react-router'
 import { reducer as header } from './header'
 import { reducer as auth } from './auth'
 import { reducer as gateway } from './gateway'
+import { reducer as search } from './search'
 import { reducer as anime } from './anime'
 import { reducer as episode } from './episode'
 import { reducer as video } from './video'
@@ -16,6 +17,7 @@ export default history =>
     header,
     auth,
     gateway,
+    search,
     anime,
     episode,
     video,

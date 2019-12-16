@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import history from '@src/routes/history'
 import Loading from '@src/shared/components/Loading'
+import Search from '@src/shared/components/Search'
 
 const Header = ({ t }) => {
   const { data, loading } = useSelector(state => state.header)
@@ -40,6 +41,7 @@ const Header = ({ t }) => {
               </div>
             </div>
             <div className="header-action">
+              {data.search ? <Search search={data.search} /> : null}
               {data.gateway ? (
                 <Button color="green" className="btn-large">
                   <FontAwesomeIcon icon={['fas', 'plus']} />
