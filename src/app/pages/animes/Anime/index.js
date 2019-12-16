@@ -33,12 +33,20 @@ const Animes = props => {
   useEffect(() => {
     const dispatchHeader = async () => {
       if (data) {
-        const { title } = dataGateway.filter(item => item.selected === true)[0]
+        const { title, gateway } = dataGateway.filter(
+          item => item.selected === true
+        )[0]
         const header = {
           title: t('ANIMES'),
           subtitle: title,
           icon: ['fas', 'ghost'],
           gateway: false,
+          search: {
+            gateway,
+            path: 'animes',
+            prefix: '',
+            sufix: 'episodes',
+          },
           back: true,
           history,
         }

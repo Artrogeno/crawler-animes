@@ -8,7 +8,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import SearchAction from '@src/shared/stores/ducks/search'
 import Loading from '@src/shared/components/Loading'
 import Image from '@src/shared/components/Image'
-import imgTest from '@src/assets/images/notfound.jpg'
 
 const Search = ({ t, search }) => {
   const dispatch = useDispatch()
@@ -87,13 +86,15 @@ const Search = ({ t, search }) => {
                   {list.length > 0
                     ? list.map((item, i) => (
                         <div className="row-result" key={i}>
-                          <div className="thumb-result">
-                            <Image
-                              src={item.image}
-                              alt={item.title}
-                              className="thumb"
-                            />
-                          </div>
+                          {item.image ? (
+                            <div className="thumb-result">
+                              <Image
+                                src={item.image}
+                                alt={item.title}
+                                className="thumb"
+                              />
+                            </div>
+                          ) : null}
                           <div className="body-result">
                             <Link
                               className="title"
